@@ -1,21 +1,14 @@
 <template>
-  <div class="container">
-    <h1>Color mode: {{ $colorMode.value }}</h1>
-    <van-radio-group v-model="$colorMode.preference">
-      <van-radio v-for="color in columns" :key="color" :name="color">
-        {{ color }}
-      </van-radio>
-    </van-radio-group>
-
-    <nuxt-link v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')">
-      {{ $t('title') }}
-    </nuxt-link>
-    <nuxt-link v-if="$i18n.locale === 'en'" :to="switchLocalePath('zh')">
-      {{ $t('title') }}
-    </nuxt-link>
-    <van-button type="primary" block @click="$store.dispatch('getNewsLike')">
-      fetch
-    </van-button>
+  <div class="page--full">
+    <van-search v-model="value" :placeholder="$t('searchPlaceholder')" />
+    <van-sticky offset-top="90vh">
+      <van-button type="warning" @click="swtichTheme">
+        {{ $t('switchTheme') }}
+      </van-button>
+      <van-button type="info" @click="switchLang">
+        {{ $t('switchLang') }}
+      </van-button>
+    </van-sticky>
   </div>
 </template>
 
@@ -23,8 +16,18 @@
 export default {
   data() {
     return {
+      value: '',
       columns: ['system', 'light', 'dark'],
     }
+  },
+  methods: {
+    switchLang() {
+      this.$i18n.locale = this.$i18n.locale === 'zh' ? 'en' : 'zh'
+    },
+    swtichTheme() {
+      this.$colorMode.preference =
+        this.$colorMode.value === 'light' ? 'dark' : 'light'
+    },
   },
 }
 </script>

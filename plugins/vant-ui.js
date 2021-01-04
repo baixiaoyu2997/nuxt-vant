@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Locale, Button, RadioGroup, Radio } from 'vant'
+import { Locale, Button, RadioGroup, Radio, Sticky, Search } from 'vant'
 import enUS from 'vant/lib/locale/lang/en-US'
 import zhCN from 'vant/lib/locale/lang/zh-CN'
 import { getLang } from '../assets/utils/cookie'
@@ -14,4 +14,4 @@ const langEnum = {
   },
 }
 Locale.use(langEnum[getLang()].lang, langEnum[getLang()].locale)
-Vue.use(Button).use(RadioGroup).use(Radio)
+Vue.use(Button).use(RadioGroup).use(Radio).use(Sticky).use(Search)

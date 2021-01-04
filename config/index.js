@@ -1,9 +1,8 @@
 export const globalConfig = {
   locale: 'zh',
   host: {
-    IMG: 'https://storage-dev.niuyan.com',
-    OLD_IMG: 'https://static.niuyan.com',
-    API: 'https://devapi.niuyan.com/',
+    IMG: 'xxx',
+    API: 'xxx',
   },
   // 原配置
   // canonicalDomain: '',

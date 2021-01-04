@@ -90,7 +90,8 @@ export default {
       plugins: {
         'postcss-px-to-viewport': {
           viewportWidth: 375,
-          selectorBlackList: [/van-.+$/],
+          // selectorBlackList: [/van-.+$/],
+          // exclude: [/node_modules/],
         },
       },
     },

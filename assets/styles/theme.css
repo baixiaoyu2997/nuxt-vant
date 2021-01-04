@@ -2,7 +2,7 @@
   --color: #243746;
   --color-primary: #158876;
   --color-secondary: #0e2233;
-  --bg: #f3f5f4;
+  --bg: #fff;
   --bg-secondary: #fff;
   --border-color: #ddd;
 }
@@ -23,6 +23,6 @@ body {
   color: var(--color);
   /* transition: background-color 0.3s; */
 }
-a {
-  color: var(--color-primary);
+.layout .van-search {
+  background-color: var(--bg);
 }
