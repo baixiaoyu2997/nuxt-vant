@@ -1,0 +1,47 @@
+{
+  "name": "niuyam-h5",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint": "yarn lint:js && yarn lint:style"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "core-js": "^3.6.5",
+    "lru-cache": "^6.0.0",
+    "nuxt": "^2.14.6",
+    "nuxt-i18n": "^6.16.0",
+    "nuxt-winston-log": "^1.2.0",
+    "vant": "^2.12.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@nuxtjs/color-mode": "^2.0.2",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/proxy": "^2.1.0",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/stylelint-module": "^4.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.3",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "less": "^4.0.0",
+    "less-loader": "^7.2.1",
+    "nuxt-purgecss": "^1.0.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0"
+  }
+}
