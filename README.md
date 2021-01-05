@@ -11,3 +11,20 @@
 1. vant 及按需加载，vant 国际化
 1. 懒加载，由 vant 提供
 1. 服务端日志(nuxt-winston-log)
+1. px-to-viewport
+
+## config
+```js
+// config/index.js
+export const globalConfig = {
+  locale: 'zh', // 默认语言
+  host: {}, // api设置
+  cache: {  // page缓存设置
+    max: 500,
+    maxAge: 1000 * 20,
+  },
+  theme: 'light', // 主题设置
+  pxToVm: false, // 是否开启px-to-viewport
+}
+
+```

@@ -88,11 +88,15 @@ export default {
         autoprefixer: {},
       },
       plugins: {
-        'postcss-px-to-viewport': {
-          viewportWidth: 375,
-          // selectorBlackList: [/van-.+$/],
-          // exclude: [/node_modules/],
-        },
+        ...(globalConfig.pxToVm
+          ? {
+              'postcss-px-to-viewport': {
+                viewportWidth: 375,
+                // selectorBlackList: [/van-.+$/],
+                // exclude: [/node_modules/],
+              },
+            }
+          : {}),
       },
     },
     transpile: [/vant.*?less/],
