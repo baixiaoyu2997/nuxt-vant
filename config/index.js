@@ -5,6 +5,6 @@ export const globalConfig = {
     max: 500,
     maxAge: 1000 * 20,
   },
-  theme: 'light',
+  theme: 'system',
   pxToVm: false,
 }

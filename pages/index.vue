@@ -22,11 +22,14 @@ export default {
   },
   methods: {
     switchLang() {
-      this.$i18n.locale = this.$i18n.locale === 'zh' ? 'en' : 'zh'
+      this.$store.commit('setLang', {
+        lang: this.$store.state.locale === 'zh' ? 'en' : 'zh',
+      })
     },
     swtichTheme() {
-      this.$colorMode.preference =
-        this.$colorMode.value === 'light' ? 'dark' : 'light'
+      this.$store.commit('setTheme', {
+        theme: this.$store.state.theme === 'light' ? 'dark' : 'light',
+      })
     },
   },
 }

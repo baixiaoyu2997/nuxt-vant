@@ -1,5 +1,4 @@
 import { globalConfig } from './config'
-import { getLang } from './assets/utils/cookie'
 import messages from './assets/locale'
 const isProd = process.env.NODE_ENV === 'production'
 export default {
@@ -33,7 +32,8 @@ export default {
   plugins: [
     { src: '~/plugins/vant-ui', ssr: true },
     '~/plugins/lazyload',
-    '~plugins/axios',
+    '~/plugins/axios',
+    '~/plugins/cookie',
   ],
 
   components: true,
@@ -52,7 +52,13 @@ export default {
   styleResources: {
     less: './assets/styles/vars.less',
   },
-  modules: ['@nuxtjs/axios', '@nuxtjs/proxy', 'nuxt-winston-log', 'nuxt-i18n'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    'nuxt-winston-log',
+    'nuxt-i18n',
+    'cookie-universal-nuxt',
+  ],
   axios: {
     // debug: !isProd,
     retry: { retries: 3 },
@@ -74,9 +80,9 @@ export default {
   },
   i18n: {
     locales: Object.keys(messages) || [],
-    defaultLocale: getLang(),
+    defaultLocale: globalConfig.locale,
     vueI18n: {
-      fallbackLocale: getLang(),
+      fallbackLocale: globalConfig.locale,
       messages,
     },
   },
