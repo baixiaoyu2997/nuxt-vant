@@ -3,6 +3,7 @@ import { Locale } from 'vant'
 import enUS from 'vant/lib/locale/lang/en-US'
 import zhCN from 'vant/lib/locale/lang/zh-CN'
 import { globalConfig } from '~/configs'
+import createLoadingPlugin from '~/utils/vuex-loading'
 
 const cookies = Cookie()
 
@@ -16,7 +17,7 @@ const langEnum = {
     locale: enUS,
   },
 }
-
+export const plugins = [createLoadingPlugin()]
 export const state = () => ({
   errorMsg: '',
   id: '',

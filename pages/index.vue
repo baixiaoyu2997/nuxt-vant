@@ -1,11 +1,15 @@
 <template>
   <div class="page--full">
-    <van-search v-model="value" :placeholder="$t('searchPlaceholder')" />
+    <van-search
+      v-model="value"
+      :placeholder="$t('searchPlaceholder')"
+      @input="getData"
+    />
     <van-sticky offset-top="90vh">
-      <van-button type="warning" @click="swtichTheme">
+      <van-button :loading="loading" type="warning" @click="swtichTheme">
         {{ $t('switchTheme') }}
       </van-button>
-      <van-button type="info" @click="switchLang">
+      <van-button :loading="loading" type="info" @click="switchLang">
         {{ $t('switchLang') }}
       </van-button>
     </van-sticky>
@@ -13,6 +17,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -20,7 +25,15 @@ export default {
       columns: ['system', 'light', 'dark'],
     }
   },
+  computed: {
+    ...mapState({
+      loading: (state) => state['@@LOADING'].effects['getNewsLike'],
+    }),
+  },
   methods: {
+    getData() {
+      this.$store.dispatch('getNewsLike')
+    },
     switchLang() {
       this.$store.commit('setLang', {
         lang: this.$store.state.locale === 'zh' ? 'en' : 'zh',

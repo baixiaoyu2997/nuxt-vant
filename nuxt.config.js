@@ -78,6 +78,7 @@ export default {
       target: 'https://storage-dev.niuyan.com/',
     },
   },
+  loading: false,
   i18n: {
     locales: Object.keys(messages) || [],
     defaultLocale: globalConfig.locale,
@@ -132,9 +133,7 @@ export default {
   publicRuntimeConfig: {
     ...globalConfig,
     axios: {
-      browserBaseURL: isProd
-        ? globalConfig.host.browser.API
-        : 'http://localhost:9001/', // process.env.BROWSER_BASE_URL,
+      browserBaseURL: globalConfig.host.browser.API,
     },
   },
 
