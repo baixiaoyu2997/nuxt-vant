@@ -1,0 +1,19 @@
+{
+  "locale": "zh",
+  "host": {
+    "server": {
+      "IMG": "https://storage-dev.niuyan.com",
+      "API": "https://devapi.niuyan.com/"
+    },
+    "browser": {
+      "IMG": "https://storage-dev.niuyan.com",
+      "API": "https://devapi.niuyan.com/"
+    }
+  },
+  "cache": {
+    "max": 500,
+    "maxAge": 20000
+  },
+  "theme": "light",
+  "pxToVm": false
+}

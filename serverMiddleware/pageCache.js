@@ -1,4 +1,4 @@
-import { globalConfig } from '../config'
+import { globalConfig } from '../configs'
 const LRU = require('lru-cache')
 
 // 需要进行页面级别缓存的路由

@@ -12,7 +12,7 @@
 1. 懒加载，由 vant 提供
 1. 服务端日志(nuxt-winston-log)
 1. px-to-viewport
-
+1. 动态配置文件(`/config.json`)
 ## config
 ```js
 // config/index.js

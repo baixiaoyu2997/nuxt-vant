@@ -1,4 +1,4 @@
-import { globalConfig } from './config'
+import * as globalConfig from './config.json'
 import messages from './assets/locale'
 const isProd = process.env.NODE_ENV === 'production'
 export default {
@@ -30,6 +30,7 @@ export default {
   ],
 
   plugins: [
+    '~/plugins/config',
     { src: '~/plugins/vant-ui', ssr: true },
     '~/plugins/lazyload',
     '~/plugins/axios',
@@ -63,7 +64,6 @@ export default {
     // debug: !isProd,
     retry: { retries: 3 },
     proxy: !isProd,
-    baseURL: isProd ? globalConfig.host.API : 'http://localhost:9002/',
     credentials: true,
     headers: {
       'Content-Type': 'application/json',
@@ -127,6 +127,21 @@ export default {
         minSize: 10000,
         maxSize: 250000,
       },
+    },
+  },
+  publicRuntimeConfig: {
+    ...globalConfig,
+    axios: {
+      browserBaseURL: isProd
+        ? globalConfig.host.browser.API
+        : 'http://localhost:9001/', // process.env.BROWSER_BASE_URL,
+    },
+  },
+
+  privateRuntimeConfig: {
+    ...globalConfig,
+    axios: {
+      baseURL: isProd ? globalConfig.host.server.API : 'http://localhost:9001/', // process.env.BASE_URL,
     },
   },
   serverMiddleware: ['~/serverMiddleware/pageCache'],

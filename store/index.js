@@ -2,7 +2,7 @@ import Cookie from 'cookie-universal'
 import { Locale } from 'vant'
 import enUS from 'vant/lib/locale/lang/en-US'
 import zhCN from 'vant/lib/locale/lang/zh-CN'
-import { globalConfig } from '~/config'
+import { globalConfig } from '~/configs'
 
 const cookies = Cookie()
 
