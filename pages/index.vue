@@ -5,11 +5,14 @@
       :placeholder="$t('searchPlaceholder')"
       @input="getData"
     />
+    <van-button :loading="userLoading" @click="getUserInfo">
+      用户接口
+    </van-button>
     <van-sticky offset-top="90vh">
       <van-button :loading="loading" type="warning" @click="swtichTheme">
         {{ $t('switchTheme') }}
       </van-button>
-      <van-button :loading="loading" type="info" @click="switchLang">
+      <van-button :loading="globalLoading" type="info" @click="switchLang">
         {{ $t('switchLang') }}
       </van-button>
     </van-sticky>
@@ -17,7 +20,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -26,11 +29,16 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      loading: (state) => state['@@LOADING'].effects['getNewsLike'],
+    ...mapState('@@LOADING', {
+      loading: (state) => state.effects['getNewsLike'],
+      userLoading: (state) => state.effects['getUserInfo'],
     }),
+    ...mapGetters('@@LOADING', ['globalLoading']),
   },
   methods: {
+    getUserInfo() {
+      this.$store.dispatch('getUserInfo')
+    },
     getData() {
       this.$store.dispatch('getNewsLike')
     },

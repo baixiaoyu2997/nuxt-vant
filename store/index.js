@@ -58,4 +58,9 @@ export const actions = {
         commit('setState', { newsLike })
       })
   },
+  getUserInfo() {
+    return new Promise((resolve, reject) => {
+      setTimeout(resolve, 5000)
+    })
+  },
 }

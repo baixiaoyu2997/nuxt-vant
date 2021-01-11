@@ -13,6 +13,8 @@
 1. 服务端日志(nuxt-winston-log)
 1. px-to-viewport
 1. 动态配置文件(`/config.json`)
+1. vuex-loading,支持通过vuex中的action来控制接口loading状态(`/utils/vuex-loading`)
+
 ## config
 ```js
 // config/index.js

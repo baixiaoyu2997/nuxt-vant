@@ -18,24 +18,27 @@ const createLoadingPlugin = ({
     store.registerModule(namespace, {
       namespaced: true,
       state: {
-        global: false, // 定义全局loading
         effects: {},
+      },
+      getters: {
+        globalLoading(state) {
+          return Object.values(state.effects).some((x) => x)
+        },
       },
       // 同步方法
       mutations: {
         SHOW(state, { payload }) {
-          state.global = true
           state.effects = {
             ...state.effects,
             [payload]: true, // 将当前的action 置为true
           }
         },
         HIDE(state, { payload }) {
-          state.global = false
-
-          state.effects = {
-            ...state.effects,
-            [payload]: false, // 将当前的action 置为false
+          if (state.effects[payload]) {
+            state.effects = {
+              ...state.effects,
+              [payload]: false, // 将当前的action 置为false
+            }
           }
         },
       },
@@ -44,14 +47,17 @@ const createLoadingPlugin = ({
     store.subscribeAction({
       // 发起一个action 之前会走这里
       before: (action) => {
-        console.log(`before action ${action.type}`)
         if (onEffect(action, includes, excludes)) {
           store.commit({ type: SHOW, payload: action.type })
         }
       },
       // 发起一个action 之后会走这里
-      after: (action) => {
-        console.log(`after action ${action.type}`)
+      after: (action, state) => {
+        if (onEffect(action, includes, excludes)) {
+          store.commit({ type: HIDE, payload: action.type })
+        }
+      },
+      error: (action) => {
         if (onEffect(action, includes, excludes)) {
           store.commit({ type: HIDE, payload: action.type })
         }

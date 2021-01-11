@@ -7,6 +7,6 @@ export default function (context) {
       $winstonLog.info(`error from route:${route.fullPath},url:${req.url}`)
     }
     const statusCode = parseInt(err.response && err.response.status) || 500
-    error({ statusCode, message: err.response })
+    // error({ statusCode, message: err.response })
   })
 }
