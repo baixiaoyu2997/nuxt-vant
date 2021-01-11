@@ -37,15 +37,16 @@ export const mutations = {
   },
   setLang(state, payload) {
     const lang = payload?.lang || globalConfig.locale
-    this.$cookies.set('i18n', lang)
-    this.$i18n.locale = lang
+    this.$cookies.set('lang', lang)
+    this.$i18n.setLocale(lang)
+
     Locale.use(langEnum[lang].lang, langEnum[lang].locale)
     state.locale = lang
   },
   setTheme(state, payload) {
     const theme = payload?.theme || globalConfig.theme
     this.$cookies.set('theme', theme)
-    this.$colorMode.value = theme
+    this.$colorMode.preference = theme
     state.theme = theme
   },
 }
