@@ -25,8 +25,9 @@ export default {
   },
   css: [
     '~/assets/styles/theme.css',
-    '@/assets/styles/index.less',
-    '@/assets/styles/page.less',
+    '~/assets/styles/index.less',
+    '~/assets/styles/page.less',
+    '~/assets/styles/common.less',
   ],
 
   plugins: [
@@ -37,8 +38,12 @@ export default {
     '~/plugins/cookie',
   ],
 
-  components: true,
-
+  components: [
+    {
+      path: '~/components/',
+      prefix: 'ny',
+    },
+  ],
   buildModules: [
     '@nuxtjs/style-resources',
     '@nuxtjs/color-mode',

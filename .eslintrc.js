@@ -15,6 +15,12 @@ module.exports = {
     'plugin:nuxt/recommended',
   ],
   plugins: ['prettier'],
+  overrides: [
+    {
+      files: ['*.vue'],
+      processor: 'vue/.vue',
+    },
+  ],
   // add your custom rules here
   rules: {},
 }
