@@ -1416,15 +1416,6 @@
   dependencies:
     http-proxy-middleware "^1.0.6"
 
-"@nuxtjs/style-resources@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/@nuxtjs/style-resources/download/@nuxtjs/style-resources-1.0.0.tgz#7c4d6be19d7f7cc5d687d689f2ab16c0b94773a1"
-  integrity sha1-fE1r4Z1/fMXWh9aJ8qsWwLlHc6E=
-  dependencies:
-    consola "^2.4.0"
-    glob-all "^3.1.0"
-    sass-resources-loader "^2.0.0"
-
 "@nuxtjs/stylelint-module@^4.0.0":
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/@nuxtjs/stylelint-module/download/@nuxtjs/stylelint-module-4.0.0.tgz#926465bacc3317197906871349c216361f18b4fa"
@@ -2138,7 +2129,7 @@ async-limiter@~1.0.0:
   resolved "https://registry.npm.taobao.org/async-limiter/download/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   integrity sha1-3TeelPDbgxCwgpH51kwyCXZmF/0=
 
-async@^3.1.0, async@^3.2.0:
+async@^3.1.0:
   version "3.2.0"
   resolved "https://registry.npm.taobao.org/async/download/async-3.2.0.tgz#b3a2685c5ebb641d3de02d161002c60fc9f85720"
   integrity sha1-s6JoXF67ZB094C0WEALGD8n4VyA=
@@ -2989,7 +2980,7 @@ consola@^1.4.5:
     lodash "^4.17.5"
     std-env "^1.1.0"
 
-consola@^2.10.0, consola@^2.11.3, consola@^2.12.1, consola@^2.15.0, consola@^2.4.0, consola@^2.6.0, consola@^2.9.0:
+consola@^2.10.0, consola@^2.11.3, consola@^2.12.1, consola@^2.15.0, consola@^2.6.0, consola@^2.9.0:
   version "2.15.0"
   resolved "https://registry.npm.taobao.org/consola/download/consola-2.15.0.tgz#40fc4eefa4d2f8ef2e2806147f056ea207fcc0e9"
   integrity sha1-QPxO76TS+O8uKAYUfwVuogf8wOk=
@@ -8377,16 +8368,6 @@ safe-regex@^2.1.1:
   version "2.1.2"
   resolved "https://registry.npm.taobao.org/safer-buffer/download/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
-
-sass-resources-loader@^2.0.0:
-  version "2.1.1"
-  resolved "https://registry.npm.taobao.org/sass-resources-loader/download/sass-resources-loader-2.1.1.tgz#a231b7c4e326d9c8d141909c901233bef9453151"
-  integrity sha1-ojG3xOMm2cjRQZCckBIzvvlFMVE=
-  dependencies:
-    async "^3.2.0"
-    chalk "^4.1.0"
-    glob "^7.1.6"
-    loader-utils "^2.0.0"
 
 sax@^1.2.4, sax@~1.2.4:
   version "1.2.4"

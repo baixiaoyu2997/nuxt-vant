@@ -4,7 +4,6 @@
 
 1. 国际化(nuxt-i18n)
 1. 主题动态切换，vant v4之前不能动态设置主题，只能通过手动设定(@nuxtjs/color-mode)
-1. less全局变量(@nuxtjs/style-resources)
 1. axios(@nuxtjs/axios)
 1. 页面缓存(`/serverMiddleware/pageCache`)
 1. proxy(@nuxtjs/proxy)

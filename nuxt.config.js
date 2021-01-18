@@ -45,7 +45,6 @@ export default {
     },
   ],
   buildModules: [
-    '@nuxtjs/style-resources',
     '@nuxtjs/color-mode',
     // 'nuxt-purgecss',
   ],
@@ -54,10 +53,7 @@ export default {
   //   whitelistPatterns: [/van-.+$/],
   //   whitelistPatternsChildren: [/van-.+$/],
   // },
-  // 注册全局变量、mixins等
-  styleResources: {
-    less: './assets/styles/vars.less',
-  },
+
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
