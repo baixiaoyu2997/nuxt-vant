@@ -4,7 +4,7 @@ import enUS from 'vant/lib/locale/lang/en-US'
 import zhCN from 'vant/lib/locale/lang/zh-CN'
 import { globalConfig } from '~/configs'
 import createLoadingPlugin from '~/utils/vuex-loading'
-
+import * as servers from '~/server'
 const cookies = Cookie()
 
 const langEnum = {
@@ -23,6 +23,7 @@ export const state = () => ({
   id: '',
   locale: cookies.get('locale') || globalConfig.locale,
   theme: cookies.get('theme') || globalConfig.theme,
+  UA: '',
 })
 
 export const mutations = {
@@ -49,19 +50,13 @@ export const mutations = {
     this.$colorMode.preference = theme
     state.theme = theme
   },
+  setUA(state, payload) {
+    const { UA } = payload
+    state.UA = UA
+  },
 }
 export const actions = {
-  getNewsLike({ commit, state }) {
-    return this.$axios
-      .$get('/news/like-list', { params: { news_id: 0 } })
-      .then((res) => {
-        const newsLike = res.data.list || []
-        commit('setState', { newsLike })
-      })
-  },
-  getUserInfo() {
-    return new Promise((resolve, reject) => {
-      setTimeout(resolve, 5000)
-    })
+  getGrayHolding() {
+    return servers.getGrayHolding()
   },
 }

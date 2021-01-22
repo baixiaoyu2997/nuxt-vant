@@ -1,6 +1,9 @@
+import path from 'path'
 import * as globalConfig from './config.json'
 import messages from './assets/locale'
+
 const isProd = process.env.NODE_ENV === 'production'
+
 export default {
   head: {
     title: 'niuyan-h5',
@@ -35,7 +38,7 @@ export default {
     { src: '~/plugins/vant-ui', ssr: true },
     '~/plugins/lazyload',
     '~/plugins/axios',
-    '~/plugins/cookie',
+    '~/plugins/store',
   ],
 
   components: [
@@ -72,11 +75,8 @@ export default {
     timeout: 5000,
   },
   proxy: {
-    '/news/': {
-      target: 'https://devapi.niuyan.com/',
-    },
-    '/static/': {
-      target: 'https://storage-dev.niuyan.com/',
+    '/h5/': {
+      target: 'http://192.168.2.121:8080',
     },
   },
   loading: false,
@@ -124,6 +124,20 @@ export default {
         ],
       ],
     },
+    loaders: {
+      // VantUI 定制主题配置
+      less: {
+        lessOptions: {
+          javascriptEnabled: true, // 开启 Less 行内 JavaScript 支持
+          modifyVars: {
+            hack: `true; @import "${path.join(
+              __dirname,
+              './assets/styles/vant.less'
+            )}";`,
+          },
+        },
+      },
+    },
     optimization: {
       splitChunks: {
         minSize: 10000,
@@ -134,14 +148,14 @@ export default {
   publicRuntimeConfig: {
     ...globalConfig,
     axios: {
-      browserBaseURL: globalConfig.host.browser.API,
+      prefix: globalConfig.host.browser.API,
     },
   },
 
   privateRuntimeConfig: {
     ...globalConfig,
     axios: {
-      baseURL: isProd ? globalConfig.host.server.API : 'http://localhost:9001/', // process.env.BASE_URL,
+      prefix: isProd ? globalConfig.host.server.API : 'http://localhost:9001/', // process.env.BASE_URL,
     },
   },
   serverMiddleware: ['~/serverMiddleware/pageCache'],
