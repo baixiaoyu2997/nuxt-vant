@@ -78,6 +78,9 @@ export default {
     '/h5/': {
       target: 'http://192.168.2.121:8080',
     },
+    '/static/': {
+      target: 'https://storage-dev.niuyan.com/',
+    },
   },
   loading: false,
   i18n: {
@@ -147,6 +150,7 @@ export default {
   },
   publicRuntimeConfig: {
     ...globalConfig,
+    host: globalConfig.host.server,
     axios: {
       prefix: globalConfig.host.browser.API,
     },
@@ -154,6 +158,7 @@ export default {
 
   privateRuntimeConfig: {
     ...globalConfig,
+    host: globalConfig.host.browser,
     axios: {
       prefix: isProd ? globalConfig.host.server.API : 'http://localhost:9001/', // process.env.BASE_URL,
     },
