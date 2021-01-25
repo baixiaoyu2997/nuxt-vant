@@ -39,6 +39,7 @@ export default {
     '~/plugins/lazyload',
     '~/plugins/axios',
     '~/plugins/store',
+    '~/plugins/dsBridge',
   ],
 
   components: [
@@ -85,9 +86,9 @@ export default {
   loading: false,
   i18n: {
     locales: Object.keys(messages) || [],
-    defaultLocale: globalConfig.locale,
+    defaultLocale: globalConfig._locale,
     vueI18n: {
-      fallbackLocale: globalConfig.locale,
+      fallbackLocale: globalConfig._locale,
       messages,
     },
   },
@@ -99,7 +100,7 @@ export default {
         autoprefixer: {},
       },
       plugins: {
-        ...(globalConfig.pxToVm
+        ...(globalConfig._pxToVm
           ? {
               'postcss-px-to-viewport': {
                 viewportWidth: 375,
@@ -150,17 +151,19 @@ export default {
   },
   publicRuntimeConfig: {
     ...globalConfig,
-    host: globalConfig.host.server,
+    _host: globalConfig._host.browser,
     axios: {
-      prefix: globalConfig.host.browser.API,
+      [isProd ? 'baseURL' : 'prefix']: globalConfig._host.browser.API,
     },
   },
 
   privateRuntimeConfig: {
     ...globalConfig,
-    host: globalConfig.host.browser,
+    _host: globalConfig._host.server,
     axios: {
-      prefix: isProd ? globalConfig.host.server.API : 'http://localhost:9001/', // process.env.BASE_URL,
+      [isProd ? 'baseURL' : 'prefix']: isProd
+        ? globalConfig._host.server.API
+        : 'http://localhost:9001', // process.env.BASE_URL,
     },
   },
   serverMiddleware: ['~/serverMiddleware/pageCache'],

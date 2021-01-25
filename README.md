@@ -18,14 +18,14 @@
 ```js
 // config/index.js
 export const globalConfig = {
-  locale: 'zh', // 默认语言
-  host: {}, // api设置
-  cache: {  // page缓存设置
+  _locale: 'zh', // 默认语言
+  _host: {}, // api设置
+  _cache: {  // page缓存设置
     max: 500,
     maxAge: 1000 * 20,
   },
-  theme: 'light', // 主题设置
-  pxToVm: false, // 是否开启px-to-viewport
+  _theme: 'light', // 主题设置
+  _pxToVm: false, // 是否开启px-to-viewport
 }
 
 ```

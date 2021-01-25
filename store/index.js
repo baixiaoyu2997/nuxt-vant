@@ -21,8 +21,8 @@ export const plugins = [createLoadingPlugin()]
 export const state = () => ({
   errorMsg: '',
   id: '',
-  locale: cookies.get('locale') || globalConfig.locale,
-  theme: cookies.get('theme') || globalConfig.theme,
+  locale: cookies.get('locale') || globalConfig._locale,
+  theme: cookies.get('theme') || globalConfig._theme,
   UA: '',
 })
 
@@ -37,7 +37,7 @@ export const mutations = {
     }
   },
   setLang(state, payload) {
-    const lang = payload?.lang || globalConfig.locale
+    const lang = payload?.lang || globalConfig._locale
     this.$cookies.set('lang', lang)
     this.$i18n.setLocale(lang)
 
@@ -45,7 +45,7 @@ export const mutations = {
     state.locale = lang
   },
   setTheme(state, payload) {
-    const theme = payload?.theme || globalConfig.theme
+    const theme = payload?.theme || globalConfig._theme
     this.$cookies.set('theme', theme)
     this.$colorMode.preference = theme
     state.theme = theme

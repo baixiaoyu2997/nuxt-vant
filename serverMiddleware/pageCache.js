@@ -4,7 +4,7 @@ const LRU = require('lru-cache')
 // 需要进行页面级别缓存的路由
 const CACHE_URL = '/p' // TODO : 修改路由
 
-const cache = new LRU(globalConfig.cache)
+const cache = new LRU(globalConfig._cache)
 
 export default function (req, res, next) {
   const url = req._parsedOriginalUrl

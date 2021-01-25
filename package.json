@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
+    "dsbridge": "^3.1.4",
     "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.8.2",
     "lru-cache": "^6.0.0",

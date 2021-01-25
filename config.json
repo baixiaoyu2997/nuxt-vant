@@ -1,6 +1,6 @@
 {
-  "locale": "zh",
-  "host": {
+  "_locale": "zh",
+  "_host": {
     "server": {
       "IMG": "https://storage-dev.niuyan.com",
       "API": "https://devapi.niuyan.com/"
@@ -10,10 +10,11 @@
       "API": "https://devapi.niuyan.com/"
     }
   },
-  "cache": {
+  "_cache": {
     "max": 500,
     "maxAge": 20000
   },
-  "theme": "light",
-  "pxToVm": false
+  "_theme": "light",
+  "_pxToVm": true,
+  "_publicAddress":"https://devpages.niuyan.com"
 }
