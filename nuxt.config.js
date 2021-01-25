@@ -152,6 +152,7 @@ export default {
   publicRuntimeConfig: {
     ...globalConfig,
     _host: globalConfig._host.browser,
+    _publicURL: isProd ? globalConfig._publicURL : 'http://localhost:9002',
     axios: {
       [isProd ? 'baseURL' : 'prefix']: globalConfig._host.browser.API,
     },
@@ -160,6 +161,7 @@ export default {
   privateRuntimeConfig: {
     ...globalConfig,
     _host: globalConfig._host.server,
+    _publicURL: isProd ? globalConfig._publicURL : 'http://localhost:9002',
     axios: {
       [isProd ? 'baseURL' : 'prefix']: isProd
         ? globalConfig._host.server.API
